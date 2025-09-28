@@ -1,0 +1,117 @@
+/* Cream/green ribbon */
+
+.vedic-ticker {
+    background: #70d969;
+    border-top: 1px solid rgba(0, 0, 0, .05);
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    overflow: hidden;
+    white-space: nowrap;
+    user-select: none;
+}
+
+
+/* Track (duplicate inner content 2–3x in HTML for seamless loop) */
+
+.vt-track {
+    display: inline-block;
+    padding: 12px 0;
+    animation: vt-scroll 30s linear infinite;
+    /* desktop speed */
+    will-change: transform;
+}
+
+
+/* Items */
+
+.vt-item {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: #7a0f31;
+    font-weight: 900;
+    font-size: clamp(16px, 2.2vw, 34px);
+    /* fluid size */
+    letter-spacing: .6px;
+    margin-right: 3rem;
+    text-transform: uppercase;
+}
+
+.vt-emoji {
+    font-size: 1.1em;
+}
+
+
+/* Seamless loop */
+
+@keyframes vt-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+    /* if content duplicated */
+}
+
+
+/* Pause on hover (desktop only) */
+
+@media (hover:hover) {
+    .vedic-ticker:hover .vt-track {
+        animation-play-state: paused;
+    }
+}
+
+
+/* ===== Responsive ===== */
+
+
+/* Tablets */
+
+@media (max-width:1024px) {
+    .vt-track {
+        animation-duration: 26s;
+    }
+    /* little faster to keep flow */
+    .vt-item {
+        margin-right: 2.2rem;
+    }
+}
+
+
+/* Phones */
+
+@media (max-width:640px) {
+    .vt-track {
+        padding: 10px 0;
+        animation-duration: 22s;
+    }
+    .vt-item {
+        font-size: clamp(15px, 4.6vw, 22px);
+        letter-spacing: .4px;
+        margin-right: 1.4rem;
+    }
+}
+
+
+/* Very small phones */
+
+@media (max-width:360px) {
+    .vt-track {
+        animation-duration: 18s;
+    }
+    .vt-item {
+        font-size: 14px;
+        margin-right: 1rem;
+    }
+}
+
+
+/* Motion safety */
+
+@media (prefers-reduced-motion:reduce) {
+    .vt-track {
+        animation: none;
+        transform: none;
+    }
+}

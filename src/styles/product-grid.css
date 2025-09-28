@@ -1,0 +1,241 @@
+/* ===== Section background + container ===== */
+
+.products {
+    background: #f3efe5;
+    /* cream */
+    padding: 48px 0 64px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+
+/* ===== Heading ===== */
+
+.prod-heading {
+    font-family: inherit;
+    font-weight: 800;
+    font-size: clamp(24px, 3.2vw, 52px);
+    line-height: 1.05;
+    letter-spacing: .5px;
+    color: #2e1a10;
+    text-transform: none;
+    margin: 0 0 28px;
+}
+
+
+/* ===== Grid of 4 cards ===== */
+
+.prod-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+    /* roomy spacing */
+}
+
+
+/* ===== Card box ===== */
+
+.prod-card {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.prod-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ===== Media circle/rounded blob look ===== */
+
+.prod-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    /* square canvas */
+    display: grid;
+    place-items: center;
+    border-radius: 30px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.prod-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* Hover image swap */
+
+.img-hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.prod-card:hover .img-hover {
+    opacity: 1;
+}
+
+.prod-card:hover .img-base {
+    opacity: 0;
+}
+
+
+/* Title + price */
+
+.prod-title {
+    margin: 14px 0 6px;
+    font-size: clamp(14px, 1.3vw, 15.5px);
+    color: #2e1a10;
+    font-weight: 500;
+}
+
+.prod-price {
+    color: #2e1a10;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+
+/* Actions row */
+
+.prod-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.btn {
+    flex: 1;
+    padding: .9rem 1rem;
+    border-radius: 999px;
+    background: #f3efe5;
+    color: #2e1a10;
+    border: 2px solid rgba(46, 26, 16, .3);
+    box-shadow: 0 2px 0 rgba(46, 26, 16, .25) inset;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .10);
+}
+
+.btn.outline {
+    background: #f3efe5;
+    color: #2e1a10;
+}
+
+
+/* ===== Responsive breakpoints ===== */
+
+@media (max-width:1200px) {
+    .prod-grid {
+        gap: 28px;
+    }
+}
+
+
+/* Tablets */
+
+@media (max-width:1024px) {
+    .prod-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .prod-media {
+        border-radius: 24px;
+    }
+    .btn {
+        padding: .85rem .9rem;
+    }
+}
+
+
+/* Phones */
+
+@media (max-width:640px) {
+    .products {
+        padding: 36px 0 48px;
+    }
+    .prod-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+    .prod-heading {
+        margin-bottom: 18px;
+        font-size: clamp(22px, 6vw, 32px);
+    }
+    .prod-media {
+        aspect-ratio: 1/1;
+        border-radius: 20px;
+    }
+    .prod-title {
+        font-size: 14px;
+    }
+    .prod-actions {
+        gap: 12px;
+    }
+    .btn {
+        padding: .8rem .9rem;
+        border-width: 1.8px;
+    }
+}
+
+
+/* Small phones */
+
+@media (max-width:480px) {
+    .container {
+        padding: 0 12px;
+    }
+    .prod-grid {
+        gap: 18px;
+    }
+    .prod-media {
+        border-radius: 18px;
+    }
+    .prod-title {
+        font-size: 13.5px;
+        margin-top: 10px;
+    }
+    .prod-price {
+        margin-bottom: 12px;
+    }
+    .btn {
+        padding: .75rem .85rem;
+        font-size: 14px;
+    }
+}
+
+
+/* Very small phones */
+
+@media (max-width:360px) {
+    .prod-heading {
+        font-size: 20px;
+    }
+    .prod-media {
+        aspect-ratio: 1/1.05;
+        border-radius: 16px;
+    }
+    /* thoda taller to save height */
+    .btn {
+        padding: .7rem .8rem;
+        font-size: 13.5px;
+    }
+}

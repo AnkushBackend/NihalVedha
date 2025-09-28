@@ -1,0 +1,199 @@
+/* ========== Base resets ========== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+}
+
+:root {
+    --maroon: #7e0f33;
+    --cream: #f3efdf;
+    --ink: #222222;
+    --muted: #6b7280;
+    /* gray-500 style */
+    --border: #e5e7eb;
+}
+
+
+/* ========== Top Promo Strip ========== */
+
+.top-strip {
+    width: 100%;
+    background: var(--maroon);
+    color: #fff;
+    font-size: 14px;
+}
+
+.top-strip .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+/* ========== Navbar ========== */
+
+.navbar {
+    width: 100%;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar .bar {
+    max-width: 1120px;
+    margin: 0 auto;
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Left menu */
+
+.nav-menu {
+    display: none;
+    gap: 24px;
+    align-items: center;
+    color: #1f2937;
+    /* gray-800 */
+    font-size: 13px;
+    letter-spacing: .04em;
+    text-transform: none;
+}
+
+@media (min-width: 768px) {
+    .nav-menu {
+        display: flex;
+    }
+}
+
+.nav-link {
+    cursor: pointer;
+    transition: opacity .15s ease;
+}
+
+.nav-link:hover {
+    opacity: .75;
+}
+
+.nav-link.sale {
+    color: var(--maroon);
+}
+
+
+/* SHOP dropdown */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 12px;
+    width: 256px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    z-index: 20;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #111827;
+    /* gray-900 */
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background: #f9fafb;
+}
+
+
+/* Center logo */
+
+.brand {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.brand img {
+    height: 32px;
+    object-fit: contain;
+}
+
+
+/* Right icons */
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity .15s ease;
+}
+
+.icon-btn:hover {
+    opacity: .7;
+}
+
+
+/* Badge (cart count) */
+
+.badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    font-size: 10px;
+    background: var(--maroon);
+    color: #fff;
+    border-radius: 999px;
+    padding: 2px 6px;
+    line-height: 1;
+}
+
+
+/* Mobile burger */
+
+.burger {
+    display: inline-flex;
+}
+
+@media (min-width:768px) {
+    .burger {
+        display: none;
+    }
+}
+
+
+/* Utility container used by both bars */
+
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 16px;
+}

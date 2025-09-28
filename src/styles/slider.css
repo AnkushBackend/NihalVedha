@@ -1,0 +1,291 @@
+/* ====== Variables ====== */
+
+:root {
+    --hero-min-h: 360px;
+    /* mobile minimum */
+    --hero-max-h: 760px;
+    /* desktop cap */
+    --hero-h: clamp(var(--hero-min-h), 55vw, var(--hero-max-h));
+    --easing: cubic-bezier(.2, .7, .2, 1);
+    --dur: 700ms;
+    --fade: 420ms;
+    --dot: #ffffff;
+    --dot-active: #ffcf80;
+    --ctrl-bg: rgba(0, 0, 0, .35);
+    --cta-bg: #5b2f00;
+    --cta-color: #ffffff;
+}
+
+
+/* ====== Wrapper ====== */
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: var(--hero-h);
+    overflow: hidden;
+    background: #efe7dc;
+    border-radius: 0;
+}
+
+
+/* ====== Slides ====== */
+
+.slides {
+    position: relative;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateX(6%);
+    transition: transform var(--dur) var(--easing), opacity var(--fade) ease;
+    will-change: transform, opacity;
+}
+
+
+/* Active slide */
+
+.slide.is-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Image clarity */
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: auto;
+}
+
+
+/* ====== Centered content block ====== */
+
+.page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.banner__content {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    pointer-events: none;
+}
+
+.banner__content--middle-center {
+    align-content: center;
+    justify-items: center;
+}
+
+.slideshow__text-wrapper {
+    color: #3a220e;
+    font-size: clamp(22px, 3.6vw, 48px);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: .2px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .12);
+    pointer-events: auto;
+}
+
+
+/* CTA button */
+
+.cta {
+    position: absolute;
+    left: min(6vw, 64px);
+    bottom: min(8vh, 96px);
+    background: var(--cta-bg);
+    color: var(--cta-color);
+    padding: .95rem 1.45rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: .2px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    pointer-events: auto;
+}
+
+
+/* ====== Controls ====== */
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--ctrl-bg);
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    backdrop-filter: saturate(140%) blur(2px);
+}
+
+.nav:hover {
+    background: rgba(0, 0, 0, .5);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+/* ====== Dots ====== */
+
+.dots {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: var(--dot);
+    opacity: .6;
+    cursor: pointer;
+}
+
+.dot.is-active {
+    background: var(--dot-active);
+    opacity: 1;
+}
+
+
+/* ====== Aspect-ratio option (prevents jump) ====== */
+
+@media (min-width:900px) {
+    .hero-slider {
+        aspect-ratio: 16/6;
+        height: auto;
+    }
+}
+
+
+/* ====== Responsive tweaks ====== */
+
+
+/* Tablets */
+
+@media (max-width:900px) {
+     :root {
+        --hero-min-h: 320px;
+        --hero-max-h: 680px;
+    }
+    .prev {
+        left: 8px;
+    }
+    .next {
+        right: 8px;
+    }
+    .nav {
+        width: 42px;
+        height: 42px;
+    }
+    .cta {
+        left: min(5vw, 48px);
+        bottom: min(8vh, 80px);
+    }
+}
+
+
+/* Phones */
+
+@media (max-width:640px) {
+     :root {
+        --hero-min-h: 300px;
+        --hero-max-h: 560px;
+    }
+    .slideshow__text-wrapper {
+        font-size: clamp(18px, 5.5vw, 28px);
+    }
+    .nav {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    .prev {
+        left: 6px;
+    }
+    .next {
+        right: 6px;
+    }
+    .dots {
+        bottom: 10px;
+        gap: 8px;
+    }
+    .dot {
+        width: 9px;
+        height: 9px;
+    }
+    .cta {
+        left: min(4vw, 32px);
+        bottom: 18px;
+        padding: .8rem 1.1rem;
+        font-size: 14px;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
+    }
+}
+
+
+/* Very small phones */
+
+@media (max-width:360px) {
+     :root {
+        --hero-min-h: 260px;
+        --hero-max-h: 520px;
+    }
+    .nav {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+    .prev {
+        left: 4px;
+    }
+    .next {
+        right: 4px;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+    .cta {
+        left: 12px;
+        bottom: 14px;
+        padding: .72rem 1rem;
+        font-size: 13.5px;
+    }
+}
+
+
+/* ====== Motion safety ====== */
+
+@media (prefers-reduced-motion:reduce) {
+    .slide {
+        transition: none;
+    }
+}

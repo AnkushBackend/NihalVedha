@@ -1,0 +1,77 @@
+/* tighter vertical height */
+
+.pumpkin-hero {
+    background: #efe3cd;
+    /* border-top:10px solid #6c0f27;   REMOVE */
+    /* border-bottom:10px solid #6c0f27; REMOVE */
+    padding: clamp(14px, 3.2vw, 28px) 0;
+}
+
+
+/* make layout wider and flatter */
+
+.ph-container {
+    max-width: 1280px;
+    /* thoda zyada width */
+    margin: 0 auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    /* image wider than copy */
+    gap: clamp(14px, 3vw, 28px);
+    align-items: center;
+}
+
+
+/* cap image height to avoid tall section */
+
+.ph-art img {
+    width: 100%;
+    max-height: clamp(220px, 34vh, 360px);
+    /* hard cap for height */
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 10px 26px rgba(0, 0, 0, .16));
+}
+
+
+/* tighter typography */
+
+.ph-title {
+    font-size: clamp(22px, 2.6vw, 36px);
+    margin: 0 0 6px;
+}
+
+.ph-sub {
+    font-size: clamp(14px, 1.2vw, 16px);
+    margin: 0 0 8px;
+}
+
+.ph-bullets {
+    margin: 0 0 12px;
+}
+
+.ph-bullets li {
+    margin: 4px 0;
+}
+
+.ph-ctas {
+    gap: 10px;
+}
+
+.btn {
+    padding: .7rem 1.1rem;
+}
+
+
+/* mobile stack even tighter */
+
+@media (max-width: 900px) {
+    .ph-container {
+        grid-template-columns: 1fr;
+    }
+    .ph-art img {
+        max-height: 240px;
+    }
+    /* small cap on mobile */
+}
