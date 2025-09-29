@@ -1,5 +1,5 @@
 // src/components/Login.jsx
-import "../styles/login.css";             // ensure file exists with exact casing
+import "../styles/login.css";            // ensure file exists with exact casing
 import AuthFooter from "../components/AuthFooter";
 import { useState } from "react";
 
