@@ -1,5 +1,5 @@
 // src/pages/Register.jsx
-import "../styles/login.css";     // reuse same form styles
+import "../styles/Login.css";      // reuse same form styles
 import AuthFooter from "../components/AuthFooter";
 import { useState } from "react";
 
