@@ -1,0 +1,138 @@
+.gifting-page {
+    background: #efe6cc;
+    min-height: 100dvh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.gift-hero {
+    background: #efe6cc;
+    padding: 24px 0 10px;
+}
+
+.gift-hero h1 {
+    margin: 0 0 6px;
+    font-size: clamp(26px, 4vw, 44px);
+    letter-spacing: .02em;
+    color: #1f2a1c;
+}
+
+.gift-hero p {
+    margin: 0;
+    color: #4a4a4a;
+}
+
+.gift-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 16px 0 28px;
+}
+
+@media (max-width:1024px) {
+    .gift-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width:768px) {
+    .gift-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:520px) {
+    .gift-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.gift-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .08);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .06);
+    display: flex;
+    flex-direction: column;
+}
+
+.gift-visual {
+    position: relative;
+    background: #fff;
+    aspect-ratio: 1.4/1;
+    overflow: hidden;
+}
+
+.gift-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gift-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e14a62;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+.gift-info {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gift-title {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.35;
+    color: #1f2a1c;
+    min-height: 40px;
+}
+
+.gift-price {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+}
+
+.gift-price .mrp {
+    color: #8a8a8a;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+.gift-price .price {
+    color: #7c1634;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.gift-btn {
+    width: 100%;
+    border: 0;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: #f4d4df;
+    color: #3a0d19;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .15s, background .2s;
+}
+
+.gift-btn:hover {
+    transform: translateY(-1px);
+    background: #f2cada;
+}

@@ -1,0 +1,294 @@
+/* src/styles/bulk.css */
+
+
+/* ===== Background: soft gradient + floating dots ===== */
+
+.bulk-page {
+    min-height: 100dvh;
+    background: radial-gradient(1200px 600px at 120% -10%, #ffe8f1 0%, transparent 60%), radial-gradient(900px 500px at -10% 120%, #e7f5e9 0%, transparent 60%), #efe6cc;
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 0;
+}
+
+.bulk-page>*:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+/* floating confetti dots */
+
+.bulk-page::before,
+.bulk-page::after {
+    content: "";
+    position: absolute;
+    inset: auto;
+    width: 2200px;
+    height: 2200px;
+    background: radial-gradient(3px 3px at 20% 30%, rgba(124, 22, 52, .18) 99%, transparent 100%), radial-gradient(3px 3px at 70% 60%, rgba(110, 132, 93, .18) 99%, transparent 100%), radial-gradient(3px 3px at 40% 80%, rgba(58, 13, 25, .16) 99%, transparent 100%), radial-gradient(2px 2px at 85% 20%, rgba(124, 22, 52, .12) 99%, transparent 100%);
+    animation: drift 35s linear infinite;
+    pointer-events: none;
+}
+
+.bulk-page::after {
+    animation-duration: 55s;
+    opacity: .55;
+    filter: blur(.2px);
+}
+
+@keyframes drift {
+    from {
+        transform: translate3d(-10%, -6%, 0) rotate(0deg);
+    }
+    to {
+        transform: translate3d(10%, 6%, 0) rotate(1turn);
+    }
+}
+
+
+/* Container and title */
+
+.container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.bulk-title {
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: .02em;
+    color: #1f2a1c;
+    margin: 22px 0 14px;
+    font-size: clamp(26px, 3.6vw, 36px);
+    position: relative;
+}
+
+.bulk-title::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #7c1634, #6E845D);
+    margin: 8px auto 0;
+}
+
+
+/* Form card — slimmer */
+
+.bulk-form {
+    width: min(520px, 100%);
+    /* was 720px */
+    margin: 0 auto 18px;
+    background: rgba(255, 255, 255, .92);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(0, 0, 0, .06);
+    border-radius: 12px;
+    /* was 16px */
+    box-shadow: 0 14px 28px rgba(124, 22, 52, .07), 0 2px 8px rgba(0, 0, 0, .05);
+    padding: 14px;
+    /* was 18px */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* was 14px */
+    transform: translateY(4px);
+    animation: rise .5s ease both;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Inputs — compact */
+
+.input {
+    height: 42px;
+    /* was 48px */
+    border: 1px solid #e7dec9;
+    border-radius: 10px;
+    /* was 12px */
+    padding: 0 12px;
+    /* was 14px */
+    font-size: 14px;
+    /* was 15px */
+    color: #1f2a1c;
+    background: #fff;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s, transform .05s;
+}
+
+.input:hover {
+    border-color: #d9ccb1;
+}
+
+.input:focus {
+    border-color: #6E845D;
+    box-shadow: 0 0 0 4px rgba(110, 132, 93, .16);
+}
+
+
+/* Phone row */
+
+.phone-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.flag {
+    width: 50px;
+    height: 42px;
+    /* was 64x48 */
+    border: 1px solid #e7dec9;
+    border-radius: 10px;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .02);
+}
+
+
+/* Radios — tighter */
+
+.purpose {
+    border: 0;
+    margin: 2px 0 0;
+    padding: 0 2px;
+}
+
+.purpose legend {
+    font-weight: 700;
+    color: #1f2a1c;
+    margin-bottom: 6px;
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 6px 0;
+    color: #1f2a1c;
+}
+
+.radio input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #6E845D;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: border-color .2s, box-shadow .2s, transform .1s;
+}
+
+.radio input:focus {
+    box-shadow: 0 0 0 4px rgba(110, 132, 93, .16);
+}
+
+.radio input:checked {
+    border-color: #7c1634;
+    box-shadow: 0 0 0 4px rgba(124, 22, 52, .16);
+    background: radial-gradient(circle at 50% 50%, #7c1634 50%, transparent 51%);
+}
+
+
+/* Submit button — slim */
+
+.bulk-submit {
+    height: 42px;
+    /* was 48px */
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #7c1634, #561028);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .02em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform .15s, filter .2s, box-shadow .2s;
+    box-shadow: 0 6px 16px rgba(124, 22, 52, .22);
+}
+
+.bulk-submit:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.03);
+}
+
+.bulk-submit:active {
+    transform: translateY(0);
+}
+
+.bulk-submit::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(140px 140px at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, .25), transparent 60%);
+    opacity: 0;
+    transition: opacity .25s;
+}
+
+.bulk-submit:hover::after {
+    opacity: 1;
+}
+
+
+/* CSS vars for ripple (updated via onMouseMove in component) */
+
+.bulk-submit {
+    --mx: 50%;
+    --my: 50%;
+}
+
+.bulk-submit:hover {
+    --x: 50%;
+    --y: 50%;
+}
+
+.bulk-submit:has(:hover) {
+    --x: var(--mx);
+    --y: var(--my);
+}
+
+
+/* Note */
+
+.note {
+    font-size: 12px;
+    color: #5f5f5f;
+    margin: 8px 4px 0;
+    text-align: center;
+}
+
+
+/* Responsive */
+
+@media (max-width:880px) {
+    .bulk-form {
+        width: min(480px, 100%);
+    }
+    /* slimmer on tablet */
+}
+
+@media (max-width:640px) {
+    .bulk-form {
+        width: 100%;
+        padding: 12px;
+    }
+    .input {
+        height: 40px;
+        font-size: 14px;
+    }
+    .flag {
+        width: 46px;
+        height: 40px;
+    }
+}

@@ -1,0 +1,162 @@
+/* src/styles/SaleCategories.css */
+
+
+/* Section wrapper */
+
+.sale-cats-wrap {
+    background: #f5f0e1;
+    /* light cream similar to screenshot */
+    padding: 28px 0 40px;
+}
+
+
+/* Container */
+
+.sale-cats.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+
+/* Heading */
+
+.sale-cats-title {
+    font-size: 36px;
+    line-height: 1.15;
+    text-align: center;
+    color: #2a2a2a;
+    margin: 4px 0 22px;
+    font-weight: 700;
+}
+
+
+/* Grid */
+
+.sale-cats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+
+/* Card anchor */
+
+.cat-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    outline: none;
+}
+
+
+/* Visual frame (taller height) */
+
+.cat-frame {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, .08);
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .06);
+    /* Taller cards via responsive height clamp */
+    height: clamp(260px, 30vw, 360px);
+    /* adjust this line to control height */
+    width: 100%;
+    display: grid;
+    place-items: center;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+
+/* Image fill */
+
+.cat-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* fills taller tile nicely */
+    object-position: center;
+    display: block;
+}
+
+
+/* Hover elevation */
+
+.cat-card:hover .cat-frame {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .12);
+}
+
+
+/* CTA row */
+
+.cat-cta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 12px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    color: #2a2a2a;
+}
+
+
+/* Arrow interaction */
+
+.cat-cta .arrow {
+    color: #2a2a2a;
+    transition: transform .18s ease;
+}
+
+.cat-card:hover .cat-cta .arrow {
+    transform: translateX(3px);
+}
+
+
+/* Optional per-card height helpers */
+
+.cat-card.tall .cat-frame {
+    height: clamp(300px, 34vw, 420px);
+}
+
+.cat-card.short .cat-frame {
+    height: clamp(220px, 26vw, 300px);
+}
+
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+    .sale-cats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .sale-cats-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sale-cats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .sale-cats-title {
+        font-size: 28px;
+    }
+    /* Slightly reduce tile height on tablets/phones */
+    .cat-frame {
+        height: clamp(240px, 40vw, 320px);
+    }
+}
+
+@media (max-width: 480px) {
+    .sale-cats-grid {
+        grid-template-columns: 1fr;
+    }
+    .sale-cats-title {
+        font-size: 24px;
+    }
+    .cat-frame {
+        height: clamp(220px, 52vw, 300px);
+    }
+}

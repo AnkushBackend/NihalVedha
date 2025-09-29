@@ -1,0 +1,256 @@
+/* src/styles/login.css — premium look */
+
+
+/* Background: soft gradient + subtle pattern */
+
+.login-wrap {
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: clamp(16px, 4vw, 48px);
+    background: radial-gradient(1200px 600px at 80% -10%, rgba(127, 23, 54, .08), transparent 60%), radial-gradient(1000px 500px at -10% 90%, rgba(127, 23, 54, .06), transparent 50%), linear-gradient(180deg, #f9f4ea 0%, #f3efe5 100%);
+}
+
+
+/* Card: glassy with border + shadow */
+
+.card {
+    width: min(560px, 92vw);
+    background: rgba(255, 255, 255, .82);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: clamp(18px, 3.4vw, 30px);
+    border-radius: 18px;
+    border: 1px solid rgba(122, 15, 49, .10);
+    box-shadow: 0 12px 30px rgba(122, 15, 49, .08), 0 2px 0 rgba(255, 255, 255, .6) inset;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 48px rgba(122, 15, 49, .12);
+}
+
+
+/* Title + subtitle */
+
+.title {
+    margin: 0 0 6px;
+    font-weight: 900;
+    font-size: clamp(22px, 3.2vw, 30px);
+    color: #2b1720;
+    letter-spacing: .2px;
+}
+
+.subtitle {
+    margin: 0 0 16px;
+    color: #6b4a3a;
+    font-size: 14px;
+}
+
+
+/* Labels */
+
+.lbl {
+    display: block;
+    margin: 12px 0 6px;
+    color: #3a251d;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+/* Input rows with icons */
+
+.input-row {
+    position: relative;
+}
+
+.input-row .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    opacity: .7;
+}
+
+
+/* Phone country chip */
+
+.phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cc {
+    background: #efe5d6;
+    padding: .72rem .85rem;
+    border-radius: 12px;
+    font-weight: 800;
+    color: #3b2a1b;
+    border: 1px solid #e3d5c2;
+}
+
+
+/* Inputs */
+
+input,
+.input {
+    width: 100%;
+    padding: .88rem 1rem;
+    padding-left: calc(1rem + 24px);
+    /* for icon */
+    border-radius: 12px;
+    border: 2px solid #eadfd0;
+    font-size: 16px;
+    outline: none;
+    background: #fff;
+    transition: border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+
+input.noicon {
+    padding-left: 1rem;
+}
+
+input:focus {
+    border-color: #7a0f31;
+    box-shadow: 0 0 0 4px rgba(122, 15, 49, .10);
+}
+
+
+/* Primary CTA */
+
+.btn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 1rem 1.1rem;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #7a0f31, #9b1b44);
+    color: #fff;
+    font-weight: 900;
+    cursor: pointer;
+    letter-spacing: .2px;
+    box-shadow: 0 10px 24px rgba(122, 15, 49, .25);
+    transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    filter: saturate(1.05);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(122, 15, 49, .24);
+}
+
+.btn:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+
+/* Secondary links row */
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.link {
+    background: transparent;
+    border: none;
+    color: #7a0f31;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+
+/* Divider with “or” */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 14px 0;
+    color: #7a5a48;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e8dccc, transparent);
+    flex: 1;
+}
+
+
+/* Social buttons */
+
+.socials {
+    display: flex;
+    gap: 10px;
+}
+
+.social {
+    flex: 1;
+    border: 1px solid #eadfd0;
+    border-radius: 12px;
+    background: #fff;
+    padding: .8rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 800;
+    color: #2e1a10;
+    transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.social:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    border-color: #e2d5c7;
+}
+
+
+/* Subtle helper text */
+
+.help {
+    color: #7a5a48;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+
+/* Responsive tweaks */
+
+@media (max-width:480px) {
+    .login-wrap {
+        padding: 16px;
+    }
+    .card {
+        padding: 18px 16px;
+    }
+    .subtitle {
+        margin-bottom: 12px;
+    }
+}

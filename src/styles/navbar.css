@@ -95,12 +95,29 @@ body,
     opacity: .75;
 }
 
-.nav-link.sale {
-    color: var(--accent);
+
+/* Make all navbar links black (including SALE) */
+
+.nav-link,
+.nav-link a,
+.nav-link.sale,
+.nav-link.sale a {
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-link a:hover,
+.nav-link.sale a:hover,
+.nav-link:hover,
+.nav-link.sale:hover {
+    color: #000;
+    opacity: .85;
+    text-decoration: none;
 }
 
 
-/* Dropdown (desktop only visible on hover if you handle via JS) */
+/* Dropdown (desktop) */
 
 .dropdown {
     position: relative;
@@ -198,7 +215,7 @@ body,
 }
 
 
-/* hide burger on desktop, show nav-menu instead */
+/* Show desktop menu on md+ */
 
 @media (min-width:768px) {
     .nav-menu {
@@ -234,7 +251,8 @@ body,
 }
 
 .mobile-nav a {
-    color: var(--ink);
+    color: #000;
+    /* keep black on mobile too */
     text-decoration: none;
     padding: 12px 8px;
     border-radius: 8px;
@@ -291,7 +309,6 @@ body,
 }
 
 @media (max-width:768px) {
-    /* shrink bar and make touch targets comfy */
     .navbar .bar {
         height: 58px;
     }
@@ -303,7 +320,6 @@ body,
         padding: 6px 12px;
         font-size: 13px;
     }
-    /* hide desktop nav-menu already via default; burger visible */
 }
 
 @media (max-width:480px) {

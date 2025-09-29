@@ -1,0 +1,196 @@
+/* src/styles/SaleNewLaunches.css */
+
+.newl-wrap {
+    background: #7c0f2a;
+    /* same maroon band as sale section */
+    padding: 32px 0 46px;
+}
+
+.newl.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.newl-title {
+    color: #fff;
+    text-align: center;
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 4px 0 22px;
+}
+
+
+/* 4-up row */
+
+.newl-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+
+/* Card */
+
+.newl-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* visual area with soft round blob look via background */
+
+.newl-visual {
+    position: relative;
+    background: #f8f2ef;
+    padding: 14px;
+    min-height: 260px;
+    display: grid;
+    place-items: center;
+}
+
+.newl-visual img {
+    width: 86%;
+    max-width: 360px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* corner pills */
+
+.pill {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 999px;
+    line-height: 1;
+    color: #fff;
+}
+
+.pill-sale {
+    right: 10px;
+    left: auto;
+    background: #e14a62;
+}
+
+.pill-new {
+    background: #ff6b4a;
+}
+
+
+/* info */
+
+.newl-info {
+    padding: 14px 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newl-name {
+    color: #2a2a2a;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.35;
+    min-height: 40px;
+    margin: 0;
+}
+
+.newl-price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.newl-price .mrp {
+    color: #8a8a8a;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+.newl-price .price {
+    color: #7c1634;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+
+/* CTA */
+
+.add-btn {
+    width: 100%;
+    margin-top: 6px;
+    background: #f4d4df;
+    color: #3a0d19;
+    border: 0;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .15s ease, background .2s ease;
+}
+
+.add-btn:hover {
+    transform: translateY(-1px);
+    background: #f2cada;
+}
+
+.newl-viewall {
+    margin: 22px auto 0;
+    display: block;
+    background: #f4d4df;
+    color: #3a0d19;
+    border: 0;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .15s ease, background .2s ease;
+}
+
+.newl-viewall:hover {
+    transform: translateY(-1px);
+    background: #f2cada;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+    .newl-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .newl-visual {
+        min-height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .newl-title {
+        font-size: 28px;
+    }
+    .newl-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .newl-visual {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .newl-grid {
+        grid-template-columns: 1fr;
+    }
+    .newl-visual {
+        min-height: 200px;
+    }
+}

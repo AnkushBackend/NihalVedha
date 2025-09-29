@@ -1,0 +1,168 @@
+/* Section header */
+
+.imgstrip {
+    padding: 12px 0 20px;
+}
+
+.imgstrip-title {
+    margin: 0 0 12px;
+    text-align: center;
+    font-size: clamp(22px, 3.6vw, 40px);
+    color: #f7eede;
+}
+
+
+/* 4 equal columns like screenshot */
+
+.imgstrip-row {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width:900px) {
+    .imgstrip-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:560px) {
+    .imgstrip-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Clickable tile with only imagery */
+
+.imgtile {
+    display: block;
+    text-decoration: none;
+}
+
+
+/* Stage: cream background, rounded, no borders */
+
+.imgstage {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+/* Cream canvas (same as page background) */
+
+.canvas {
+    position: absolute;
+    inset: 0;
+    background: #f6efdb;
+    /* tweak to your cream tone */
+}
+
+
+/* Big circular/organic colored backdrop */
+
+.backdrop {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 10%;
+    bottom: 18%;
+    border-radius: 50%;
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, .08));
+}
+
+.backdrop.teal {
+    background: #0d8a91;
+}
+
+.backdrop.purple {
+    background: #7b61a5;
+}
+
+.backdrop.brown {
+    background: #9b6a4d;
+}
+
+.backdrop.red {
+    background: #b63b3b;
+}
+
+
+/* Centered PNG: perfectly fits whatever aspect using contain */
+
+.jar {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: min(64%, 420px);
+    height: min(86%, 420px);
+    object-fit: contain;
+    object-position: center;
+    image-rendering: auto;
+    transform: scale(1);
+    transition: transform .35s ease, filter .35s ease;
+    will-change: transform;
+}
+
+
+/* Premium shine from top-right to bottom-left */
+
+.imgstage::after {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .65) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: translate(-120%, -120%) rotate(25deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+}
+
+.imgtile:hover .jar {
+    transform: scale(1.06);
+    filter: saturate(1.05);
+}
+
+.imgtile:hover .imgstage::after {
+    opacity: 1;
+    animation: shineSweep 900ms ease-out forwards;
+}
+
+@keyframes shineSweep {
+    from {
+        transform: translate(-120%, -120%) rotate(25deg);
+    }
+    to {
+        transform: translate(120%, 120%) rotate(25deg);
+    }
+}
+
+
+/* Optional badge */
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    color: #7a0f31;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+}
+
+
+/* Motion respect */
+
+@media (prefers-reduced-motion:reduce) {
+    .jar {
+        transition: none
+    }
+    .imgstage::after {
+        display: none
+    }
+}

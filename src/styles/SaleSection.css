@@ -1,0 +1,232 @@
+/* ===== SaleSection styles (with image fit fix) ===== */
+
+:root {
+    --sale-bg: #7c0f2a;
+    /* page strip behind section */
+    --card-bg: #fff5ea;
+    /* card background */
+    --ink: #2a2a2a;
+    /* main text */
+    --muted: #757575;
+    /* secondary text */
+    --btn-bg: #f4d4df;
+    /* CTA chip */
+    --btn-ink: #3a0d19;
+    /* CTA text */
+    --badge: #e14a62;
+    /* sale badge */
+    --shadow: 0 10px 24px rgba(0, 0, 0, .08);
+}
+
+
+/* Section shell */
+
+.sale-wrap {
+    background: var(--sale-bg);
+    padding: 32px 0 48px;
+}
+
+.sale-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.sale-title {
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin: 8px 0 24px;
+}
+
+
+/* Grid */
+
+.sale-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+/* Card */
+
+.sale-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.sale-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, .12);
+}
+
+
+/* Visual stage with circle backdrop */
+
+.card-visual {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    /* perfect square stage */
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: #fff;
+    padding: 18px;
+    /* keep product away from edges */
+}
+
+.blob {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 82%;
+    height: 82%;
+    border-radius: 50%;
+    background: #ecdef7;
+    /* light lilac circle */
+    z-index: 1;
+}
+
+
+/* Fixed image fit rules */
+
+.card-img {
+    position: relative;
+    z-index: 2;
+    width: auto;
+    height: auto;
+    max-width: 78%;
+    /* default clamp: suits most jars */
+    max-height: 78%;
+    object-fit: contain;
+    /* no crop */
+    object-position: center;
+    /* perfectly centered */
+    display: block;
+    image-rendering: auto;
+}
+
+
+/* Shape helpers for odd assets */
+
+.sale-card.tall .card-img {
+    max-width: 72%;
+    max-height: 80%;
+}
+
+.sale-card.wide .card-img {
+    max-width: 85%;
+    max-height: 70%;
+}
+
+
+/* Badge */
+
+.badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--badge);
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+    padding: 6px 10px;
+    border-radius: 999px;
+    z-index: 3;
+}
+
+
+/* Info area */
+
+.card-info {
+    padding: 14px 14px 16px;
+}
+
+.card-title {
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.35;
+    min-height: 38px;
+    /* keeps two-line titles aligned */
+    margin: 0 0 8px;
+}
+
+.price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.mrp {
+    color: var(--muted);
+    text-decoration: line-through;
+    font-size: 13px;
+}
+
+.price {
+    color: #7c1634;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+
+/* CTA */
+
+.view-all {
+    margin: 22px auto 0;
+    display: block;
+    background: var(--btn-bg);
+    color: var(--btn-ink);
+    border: none;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .15s ease, background .2s ease;
+}
+
+.view-all:hover {
+    transform: translateY(-1px);
+    background: #f9cddd;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+    .sale-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sale-title {
+        font-size: 24px;
+    }
+    .sale-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card-img {
+        max-width: 76%;
+        max-height: 76%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sale-grid {
+        grid-template-columns: 1fr;
+    }
+    .card-img {
+        max-width: 74%;
+        max-height: 74%;
+    }
+}
